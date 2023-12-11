@@ -24,12 +24,10 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Create and set the active builder
-                    sh 'sudo docker buildx create'
-                    sh 'sudo docker buildx use default'
+               
 
                     // Build Docker image
-                    sh 'sudo docker buildx build -t django_app_image --platform local .'
+                    sh 'sudo docker  build -t django_app_image .'
                 }
             }
         }
