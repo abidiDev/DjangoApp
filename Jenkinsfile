@@ -1,25 +1,16 @@
 pipeline {
     agent {
-            label 'agent-vagrant'
-        }
-
- 
-
-   
+        label 'agent-vagrant'
+    }
 
     stages {
-
-
         stage('Checkout') {
             steps {
                 checkout scm
-	        echo 'scm successful!'
+                echo 'scm successful!'
             }
         }
-
-
-
-
+    }
 
     post {
         success {
@@ -29,5 +20,4 @@ pipeline {
             echo 'Build failed!'
         }
     }
-}
 }
