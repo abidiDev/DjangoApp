@@ -12,6 +12,23 @@ pipeline {
         }
     }
 
+            stage('Build') {
+            steps {
+                // Install dependencies
+                sh 'pip install -r requirements.txt'
+
+                // Apply migrations
+                sh 'python manage.py migrate'
+
+                // Collect static files
+                sh 'python manage.py collectstatic --noinput'
+            }
+        }
+
+        // Add more stages as needed
+
+    }
+
     post {
         success {
             echo 'Build successful!'
