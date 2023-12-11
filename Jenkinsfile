@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t django_app_image --platform local'
+                    sh 'docker build -t django_app_image --platform local .'
 '
                 }
             }
