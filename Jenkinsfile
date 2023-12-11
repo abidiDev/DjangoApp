@@ -35,6 +35,21 @@ pipeline {
                 }
             }
         }
+
+         stage('Push to Docker Hub') {
+            steps {
+                script {
+                    // Log in to Docker Hub
+                    sh 'sudo docker login -u abidi123456 -p Bouselm852!'
+                    
+                    // Tag the built image with the Docker Hub repository name
+                    sh 'sudo docker tag django_app_image abidi123456/django_app_image:latest'
+                    
+                    // Push the image to Docker Hub
+                    sh 'sudo docker push abidi123456/django_app_image:latest'
+                }
+            }
+        }
     }
 
     post {
