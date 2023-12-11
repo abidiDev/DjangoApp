@@ -25,8 +25,10 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'sudo docker build -t django_app_image --platform local .'
-                }
+                    sh 'sudo docker buildx create --use'
+                    sh 'sudo docker buildx build -t django_app_image --platform local .'
+
+                                    }
             }
         }
     }
