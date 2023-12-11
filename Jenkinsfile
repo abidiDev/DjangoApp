@@ -11,15 +11,12 @@ pipeline {
             }
         }
 
-        stage('Build') {
+       stage('Lint Dockerfile') {
             steps {
-                // Install dependencies
-                sh 'pip install -r requirements.txt'
-
-                // Apply migrations
-                sh 'python3 manage.py migrate'
-
-                //sh 'python3 manage.py collectstatic --no-input'
+                script {
+                    // Run hadolint on the Dockerfile
+                    sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
+                }
             }
         }
 
