@@ -20,17 +20,14 @@ pipeline {
                 sh 'python3 manage.py migrate'
 
                 sh 'python manage.py collectstatic'
-'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-               
-
                     // Build Docker image
-                    sh 'sudo docker  build -t django_app_image .'
+                    sh 'sudo docker build -t django_app_image .'
                 }
             }
         }
