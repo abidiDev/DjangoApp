@@ -19,7 +19,7 @@ pipeline {
                 // Apply migrations
                 sh 'python3 manage.py migrate'
 
-                sh 'python3 manage.py collectstatic --no-input'
+                //sh 'python3 manage.py collectstatic --no-input'
             }
         }
 
