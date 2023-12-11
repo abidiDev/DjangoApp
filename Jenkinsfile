@@ -25,9 +25,8 @@ pipeline {
             }
         }
 
-        // Add more stages as needed
 
-    }
+    
 
     post {
         success {
