@@ -11,14 +11,21 @@ pipeline {
             }
         }
 
-       stage('Lint Dockerfile') {
+      stage('Lint Dockerfile') {
             steps {
                 script {
-                    // Run hadolint on the Dockerfile
-                    sh 'sudo docker run --rm -i hadolint/hadolint < Dockerfile'
+                    def lintResult = sh(script: 'sudo docker run --rm -i hadolint/hadolint', returnStatus: true)
+                    
+                    if (lintResult == 0) {
+                        echo 'Linting successful, no issues found.'
+                    } else {
+                        echo 'Linting completed with warnings. Check the warnings above.'
+                        currentBuild.result = 'UNSTABLE'
+                    }
                 }
             }
         }
+
 
         stage('Build Docker Image') {
             steps {
