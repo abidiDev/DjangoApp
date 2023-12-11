@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Run hadolint on the Dockerfile
-                    sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
+                    sh 'sudo docker run --rm -i hadolint/hadolint < Dockerfile'
                 }
             }
         }
