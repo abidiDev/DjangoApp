@@ -10,9 +10,7 @@ pipeline {
                 echo 'scm successful!'
             }
         }
-    }
-
-            stage('Build') {
+           stage('Build') {
             steps {
                 // Install dependencies
                 sh 'pip install -r requirements.txt'
@@ -25,6 +23,9 @@ pipeline {
             }
         }
 
+    }
+
+         
 
     
 
