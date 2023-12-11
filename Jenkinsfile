@@ -46,7 +46,7 @@ pipeline {
             }
         }
 
-        /* stage('Push to Docker Hub') {
+         stage('Push to Docker Hub') {
             steps {
                 script {
                     // Log in to Docker Hub
@@ -60,7 +60,7 @@ pipeline {
                 }
             }
         }
-        */
+        
     }
 
     post {
