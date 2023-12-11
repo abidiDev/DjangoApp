@@ -16,10 +16,10 @@ pipeline {
                 sh 'pip install -r requirements.txt'
 
                 // Apply migrations
-                sh 'python manage.py migrate'
+                sh 'python3 manage.py migrate'
 
                 // Collect static files
-                sh 'python manage.py collectstatic --noinput'
+                sh 'python3 manage.py collectstatic --noinput'
             }
         }
 
