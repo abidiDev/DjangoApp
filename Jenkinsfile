@@ -39,8 +39,6 @@ pipeline {
         stage('Run with Docker Compose') {
             steps {
                 script {
-                    // Stop and remove any existing containers
-                    sh 'sudo docker-compose down'
                     
                     // Use Docker Compose to start the application
                     sh 'sudo docker-compose up -d'
